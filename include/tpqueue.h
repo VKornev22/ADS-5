@@ -6,27 +6,27 @@
 template<typename T>
 class TPQueue {
   private:
-  struct ITEM {
-    T data;
-    ITEM* next;
-    ITEM* prev;
-  };
-  ITEM* head;
-  ITEM* tail;
-  TPQueue::ITEM* create(const T& data, ITEM*prev) {
-    ITEM* item = new ITEM;
-    item->data = data;
-    item->next = nullptr;
-    item->prev = prev;
-    return item;
-  }
+    struct ITEM {
+      T data;
+      ITEM* next;
+      ITEM* prev;
+    };
+    ITEM* head;
+    ITEM* tail;
+    TPQueue::ITEM* create(const T& data, ITEM*prev) {
+      ITEM* item = new ITEM;
+      item->data = data;
+      item->next = nullptr;
+      item->prev = prev;
+      return item;
+    }
 
   public:
-  TPQueue() :head(nullptr), tail(nullptr) {}
-  ~TPQueue() {
-    while (head)
-      pop();
-  }
+    TPQueue() :head(nullptr), tail(nullptr) {}
+    ~TPQueue() {
+      while (head)
+        pop();
+    }
 
   void push(const T& data) {
     if (tail && head) {
